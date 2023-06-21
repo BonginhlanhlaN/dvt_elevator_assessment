@@ -15,5 +15,7 @@ namespace elevator.console.Interfaces
 
         public List<IElevator> CreateElevators(int numberOfElevatorsInBuilding);
 
+        public IElevator ChooseNearestElevator(IPassanger passanger);
+
     }
 }

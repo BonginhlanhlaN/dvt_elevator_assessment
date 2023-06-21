@@ -8,5 +8,9 @@ namespace elevator.console.Interfaces
 {
     public interface IPassanger
     {
+
+        public int FromFloor { get; set; }
+        public int ToFloor { get; set; }
+
     }
 }
