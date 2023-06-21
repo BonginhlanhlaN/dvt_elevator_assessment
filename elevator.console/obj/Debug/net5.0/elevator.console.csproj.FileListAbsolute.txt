@@ -1,0 +1,15 @@
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\elevator.console.exe
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\elevator.console.deps.json
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\elevator.console.runtimeconfig.json
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\elevator.console.runtimeconfig.dev.json
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\elevator.console.dll
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\ref\elevator.console.dll
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\bin\Debug\net5.0\elevator.console.pdb
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.AssemblyInfoInputs.cache
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.AssemblyInfo.cs
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.csproj.CoreCompileInputs.cache
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.dll
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\ref\elevator.console.dll
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.pdb
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.genruntimeconfig.cache

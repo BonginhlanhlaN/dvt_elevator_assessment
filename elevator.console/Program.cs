@@ -1,4 +1,6 @@
-﻿using System;
+﻿using elevator.console.Implementations;
+using elevator.console.Interfaces;
+using System;
 
 namespace elevator.console
 {
@@ -6,7 +8,12 @@ namespace elevator.console
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            IElevator elevatore = new Elevator();
+
+            var awaiter = elevatore.Move().GetAwaiter();
+            awaiter.GetResult();
+
         }
     }
 }
