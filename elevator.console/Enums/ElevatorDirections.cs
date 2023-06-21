@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace elevator.console.Enums
 {
-    public enum ElevatorStates
+    public enum ElevatorDirections
     {
 
         MovingUp = 1,
