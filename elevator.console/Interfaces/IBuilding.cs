@@ -17,5 +17,7 @@ namespace elevator.console.Interfaces
 
         public IElevator ChooseNearestElevator(IPassanger passanger);
 
+        public void UpdateElevatorAfterMove(IElevator elevator);
+
     }
 }

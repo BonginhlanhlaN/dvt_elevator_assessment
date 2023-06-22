@@ -1,6 +1,7 @@
 ﻿using elevator.console.Implementations;
 using elevator.console.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace elevator.console
 {
@@ -9,22 +10,34 @@ namespace elevator.console
         static void Main(string[] args)
         {
 
-            Console.WriteLine("How many elevators does your build Have?:");
+            Console.WriteLine("How many elevators does your building have?: ");
 
-            // Create a string variable and get user input from the keyboard and store it in the variable
             string numberOfElevators = Console.ReadLine();
 
             IBuilding building = new Building();
 
-            var createElevators = building.CreateElevators(int.Parse(numberOfElevators));
+            List<IElevator> buildingElevatores = building.CreateElevators(int.Parse(numberOfElevators));
 
-            building.Elevators = createElevators;
+            building.Elevators = buildingElevatores;
 
-            var numberOfElavators = building.Elevators.Count;
+            Console.WriteLine("Which Floor are you on ?: ");
+            string passagerFloor = Console.ReadLine();
 
-            Console.WriteLine("Direction" + building.Elevators[0].Direction);
-            Console.WriteLine("Current Floor" + building.Elevators[0].CurrentFloor);
-           
+            Console.WriteLine("Which Floor are you going to ?: ");
+            string passagerDestination = Console.ReadLine();
+
+            IPassanger passager = new Passager()
+            {
+                FromFloor = int.Parse(passagerFloor),
+                ToFloor = int.Parse(passagerDestination),
+            };
+
+            IElevator closestElevator = building.ChooseNearestElevator(passager);
+
+            closestElevator.Move(passager);
+            closestElevator.OnLoad(passager);
+
+            building.UpdateElevatorAfterMove(closestElevator);
 
         }
     }

@@ -13,3 +13,4 @@ C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console
 C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\ref\elevator.console.dll
 C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.pdb
 C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.genruntimeconfig.cache
+C:\Users\bongi\source\repos\Console-App\dvt_elevator_accessment\elevator.console\obj\Debug\net5.0\elevator.console.csproj.AssemblyReference.cache

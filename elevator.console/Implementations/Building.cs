@@ -30,6 +30,7 @@ namespace elevator.console.Implementations
                 IElevator elevator = new Elevator()
                 {
 
+                    Id = i,
                     CurrentFloor = 0,
                     ToFloor = 0,
                     Passagers = new List<IPassanger>(),
@@ -73,6 +74,24 @@ namespace elevator.console.Implementations
             }
 
             return nearestElevator;
+
+        }
+
+        public void UpdateElevatorAfterMove(IElevator elevator)
+        {
+
+            foreach (IElevator currentElevator in this.Elevators)
+            {
+
+                if (currentElevator.Id == elevator.Id)
+                {
+
+                    this.Elevators[elevator.Id] = elevator;
+                    break;
+
+                }
+
+            }
 
         }
 

@@ -11,6 +11,7 @@ namespace elevator.console.Implementations
     public class Elevator : IElevator
     {
 
+        public int Id { get; set; }
         public List<IPassanger> Passagers { get; set; }
         public int CurrentFloor { get; set; }
         public int ToFloor { get; set; }
@@ -18,27 +19,36 @@ namespace elevator.console.Implementations
 
 
 
-        public async Task Move()
+        public void Move(IPassanger passanger)
         {
 
-            await Task.Run(() => {
+            string elevetorDirection = passanger.FromFloor > this.CurrentFloor ? " Elevator Going Up " : " Elevator Going Down ";
+            string passagerElevatoreFloors = " from Floor " + this.CurrentFloor + " to floor " + passanger.FromFloor;
+            string numberOfPassagers = " Carrying " + this.Passagers.Count + " Passagers";
 
-                Console.WriteLine("Elevator Started Moving");
-                Thread.Sleep(3000);
-                Console.WriteLine("Elevator Finished Moving");
+            Console.WriteLine(elevetorDirection + passagerElevatoreFloors + numberOfPassagers);
 
-            });
+            //await Task.Run(() => {
+
+            //    Console.WriteLine("Elevator Started Moving");
+            //    Thread.Sleep(3000);
+            //    Console.WriteLine("Elevator Finished Moving");
+
+            //});
 
         }
 
-        public void OnLoad()
+        public void OnLoad(IPassanger passanger)
         {
-            Console.WriteLine("Elevatore dropped off somebody");
+
+            Console.WriteLine("Elevator picked up somebody on floor " + passanger.FromFloor);
+            this.Passagers.Add(passanger);
+
         }
         public void OfLoad()
         {
 
-            Console.WriteLine("Elevatore picked up somebody");
+            Console.WriteLine("Elevator dropped off somebody on floor ");
 
         }
     }
