@@ -67,19 +67,22 @@ namespace elevator.console.Implementations
         {
 
             int passagerIndex = 0;
+            int droppedOfPassagers = 0;
             foreach (IPassanger passanger in this.Passagers)
             {
 
                 if (passanger.ToFloor == this.CurrentFloor)
                 {
                     this.Passagers.RemoveAt(passagerIndex);
+                    droppedOfPassagers++;
                 }
 
                 passagerIndex++;
 
             }
 
-            Console.WriteLine("Elevator dropped off somebody on floor " + this.CurrentFloor);
+            if (droppedOfPassagers > 0 ) { Console.WriteLine("Elevator dropped off somebody on floor " + this.CurrentFloor);  }
+            
 
         }
     }

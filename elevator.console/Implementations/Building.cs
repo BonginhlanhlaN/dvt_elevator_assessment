@@ -12,14 +12,14 @@ namespace elevator.console.Implementations
     {
 
         public List<IElevator> Elevators { get; set; }
-        public int NumberOfFloors { get; set; }
+        public List<IFloor> Floors { get; set; }
 
         public List<IElevator> CreateElevators(int numberOfElevatorsInBuilding)
         {
 
             /**
                 I did not want to assume the number of elevator
-                I therefore allowed user input to determine the number of floors in the "building".
+                I therefore allowed user input to determine the number of ELEVATORS in the "building".
              */
 
             List<IElevator> elevators = new();
@@ -43,6 +43,36 @@ namespace elevator.console.Implementations
             }
 
             return elevators;
+
+        }
+
+        public List<IFloor> CreateFloors(int numberOfFloorsInBuilding)
+        {
+
+            /**
+               I did not want to assume the number of FLOORS
+               I therefore allowed user input to determine the number of floors in the "building".
+            */
+
+            List<IFloor> floors = new();
+
+            for (int i = 0; i < numberOfFloorsInBuilding; i++)
+            {
+
+                IFloor elevator = new Floor()
+                {
+
+                    FloorNum = i,
+                    PassagersWaiting = new List<IPassanger>(),
+                  
+                };
+
+                floors.Add(elevator);
+
+            }
+
+            return floors;
+
 
         }
 
