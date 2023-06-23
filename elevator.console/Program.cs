@@ -36,6 +36,7 @@ namespace elevator.console
 
             closestElevator.Move(passager);
             closestElevator.OnLoad(passager);
+            closestElevator.OfLoad();
 
             building.UpdateElevatorAfterMove(closestElevator);
 

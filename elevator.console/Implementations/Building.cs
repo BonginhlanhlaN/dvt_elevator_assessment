@@ -19,7 +19,7 @@ namespace elevator.console.Implementations
 
             /**
                 I did not want to assume the number of elevator
-                I therefore allowed user input to determine the number of users in the "building".
+                I therefore allowed user input to determine the number of floors in the "building".
              */
 
             List<IElevator> elevators = new();
@@ -86,7 +86,7 @@ namespace elevator.console.Implementations
                 if (currentElevator.Id == elevator.Id)
                 {
 
-                    this.Elevators[elevator.Id] = elevator;
+                    this.Elevators[currentElevator.Id] = elevator;
                     break;
 
                 }
