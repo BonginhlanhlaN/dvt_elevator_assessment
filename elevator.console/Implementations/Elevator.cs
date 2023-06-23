@@ -79,7 +79,7 @@ namespace elevator.console.Implementations
 
             }
 
-            Console.WriteLine("Elevator dropped off somebody on floor " + );
+            Console.WriteLine("Elevator dropped off somebody on floor " + this.CurrentFloor);
 
         }
     }
