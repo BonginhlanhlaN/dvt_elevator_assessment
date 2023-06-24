@@ -73,10 +73,9 @@ namespace elevator.console.Implementations
 
             return floors;
 
-
         }
 
-        public IElevator ChooseNearestElevator(IPassanger passanger)
+        public IElevator ChooseNearestElevator(IElevatorSummonRequest elevatorRequest)
         {
 
             /*
@@ -86,13 +85,13 @@ namespace elevator.console.Implementations
             IElevator nearestElevator = this.Elevators[0];
 
             //This is to avoid negative floor distance numbers.
-            int passangerElevatorFloorDistance = passanger.FromFloor >= this.Elevators[0].CurrentFloor ? passanger.FromFloor - this.Elevators[0].CurrentFloor : this.Elevators[0].CurrentFloor - passanger.FromFloor;
+            int passangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= this.Elevators[0].CurrentFloor ? elevatorRequest.SummonedFloor - this.Elevators[0].CurrentFloor : this.Elevators[0].CurrentFloor - elevatorRequest.SummonedFloor;
 
             foreach(IElevator elevator in this.Elevators)
             {
 
                 //This is to avoid negative floor distance numbers.
-                int currentPassangerElevatorFloorDistance = passanger.FromFloor >= elevator.CurrentFloor ? passanger.FromFloor - elevator.CurrentFloor : elevator.CurrentFloor - passanger.FromFloor;
+                int currentPassangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= elevator.CurrentFloor ? elevatorRequest.SummonedFloor - elevator.CurrentFloor : elevator.CurrentFloor - elevatorRequest.SummonedFloor;
 
 
                 if (currentPassangerElevatorFloorDistance < passangerElevatorFloorDistance)

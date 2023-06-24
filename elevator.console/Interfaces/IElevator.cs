@@ -15,10 +15,22 @@ namespace elevator.console.Interfaces
         public int ToFloor { get; set; }
         public int Direction { get; set; }
 
-        public void Move(IPassanger passanger);
+        public int MaxPassagerNum { get; set; }
+
+
+
+
+        public void MoveToRequestedFloor(IElevatorSummonRequest elevatorRequest);
+
+        public void MoveToDestinationFloor(IElevatorDestinationRequest elevatorRequest);
 
         public void OnLoad(IPassanger passanger);
-        public void OfLoad();
+
+        public void DropOffPassagersToSummedFloor();
+
+        public void DropOffPassagersToDestination();
+
+
 
     }
 }

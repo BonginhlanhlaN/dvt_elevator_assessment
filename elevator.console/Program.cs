@@ -10,35 +10,99 @@ namespace elevator.console
         static void Main(string[] args)
         {
 
-            Console.WriteLine("How many elevators does your building have?: ");
+            IBuilding building = EnquireAboutBuilding();
 
-            string numberOfElevators = Console.ReadLine();
+
+            while (true)
+            {
+
+                try
+                {
+
+                    IElevator buildingElevator = ElevatorFun(building);
+
+                    building.UpdateElevatorAfterMove(buildingElevator);
+
+                }
+                catch (Exception ex)
+                {
+                    break;
+                }
+
+            }
+
+           
+        }
+
+        private static IBuilding EnquireAboutBuilding()
+        {
 
             IBuilding building = new Building();
 
-            List<IElevator> buildingElevatores = building.CreateElevators(int.Parse(numberOfElevators));
+            try
+            {
+            
+                Console.WriteLine("How many floors does your building have?: ");
+                string numberOfFloors = Console.ReadLine();
 
-            building.Elevators = buildingElevatores;
+                List<IFloor> buildingFloors = building.CreateFloors(int.Parse(numberOfFloors));
+                building.Floors = buildingFloors;
 
-            Console.WriteLine("Which Floor are you on ?: ");
-            string passagerFloor = Console.ReadLine();
+                Console.WriteLine("How many elevators does your building have?: ");
+                string numberOfElevators = Console.ReadLine();
 
-            Console.WriteLine("Which Floor are you going to ?: ");
-            string passagerDestination = Console.ReadLine();
+                List<IElevator> buildingElevatores = building.CreateElevators(int.Parse(numberOfElevators));
+                building.Elevators = buildingElevatores;
+
+            }
+            catch (System.FormatException ex)
+            {
+                EnquireAboutBuilding();
+            }
+
+            return building;
+        }
+
+        private static IElevator ElevatorFun(IBuilding building)
+        {
+
+            Console.WriteLine("Which Floor are you on?: ");
+            string requestedFloor = Console.ReadLine();
+
+            IElevatorSummonRequest elevatorSummonRequest = new ElevatorSummonRequest()
+            {
+                SummonedFloor = int.Parse(requestedFloor)
+            };
+
+            IElevator closestElevator = building.ChooseNearestElevator(elevatorSummonRequest);
+
+            closestElevator.MoveToRequestedFloor(elevatorSummonRequest);
+
+            closestElevator.DropOffPassagersToSummedFloor();
+
+            Console.WriteLine("Which Floor are you going to?: ");
+            string requestedDestination = Console.ReadLine();
+
+            IElevatorDestinationRequest destinationRequest = new ElevatorDestinationRequest()
+            {
+                DestinationFloor = int.Parse(requestedDestination)
+            };
+
 
             IPassanger passager = new Passager()
             {
-                FromFloor = int.Parse(passagerFloor),
-                ToFloor = int.Parse(passagerDestination),
+                FromFloor = elevatorSummonRequest.SummonedFloor,
+                ToFloor = destinationRequest.DestinationFloor
             };
 
-            IElevator closestElevator = building.ChooseNearestElevator(passager);
-
-            closestElevator.Move(passager);
             closestElevator.OnLoad(passager);
-            closestElevator.OfLoad();
 
-            building.UpdateElevatorAfterMove(closestElevator);
+
+            closestElevator.MoveToDestinationFloor(destinationRequest);
+
+            closestElevator.DropOffPassagersToDestination();
+
+            return closestElevator;
 
         }
     }
