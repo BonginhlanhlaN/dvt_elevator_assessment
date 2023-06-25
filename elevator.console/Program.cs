@@ -12,6 +12,7 @@ namespace elevator.console
 
             IBuilding building = EnquireAboutBuilding();
 
+            Console.WriteLine("Press any key other than a number when Done.");
 
             while (true)
             {
@@ -19,7 +20,7 @@ namespace elevator.console
                 try
                 {
 
-                    IElevator buildingElevator = ElevatorFun(building);
+                    IElevator buildingElevator = ElevateMe(building);
 
                     building.UpdateElevatorAfterMove(buildingElevator);
 
@@ -53,17 +54,25 @@ namespace elevator.console
 
                 List<IElevator> buildingElevatores = building.CreateElevators(int.Parse(numberOfElevators));
                 building.Elevators = buildingElevatores;
+                return building;
 
             }
             catch (System.FormatException ex)
             {
-                EnquireAboutBuilding();
+                Console.WriteLine("Only numbers allowed. Try again.");
+                return EnquireAboutBuilding();
+            }
+            catch (Exception ex)
+            {
+                //EnquireAboutBuilding();
+                Console.WriteLine("Something went wrong. Try again.");
+                return EnquireAboutBuilding();
             }
 
-            return building;
+
         }
 
-        private static IElevator ElevatorFun(IBuilding building)
+        private static IElevator ElevateMe(IBuilding building)
         {
 
             Console.WriteLine("Which Floor are you on?: ");
@@ -88,7 +97,6 @@ namespace elevator.console
                 DestinationFloor = int.Parse(requestedDestination)
             };
 
-
             IPassanger passager = new Passager()
             {
                 FromFloor = elevatorSummonRequest.SummonedFloor,
@@ -96,7 +104,6 @@ namespace elevator.console
             };
 
             closestElevator.OnLoad(passager);
-
 
             closestElevator.MoveToDestinationFloor(destinationRequest);
 

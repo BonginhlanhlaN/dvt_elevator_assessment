@@ -15,11 +15,8 @@ namespace elevator.console.Interfaces
 
 
         public List<IElevator> CreateElevators(int numberOfElevatorsInBuilding);
-
         public List<IFloor> CreateFloors(int numberOfFloorsInBuilding);
-
         public IElevator ChooseNearestElevator(IElevatorSummonRequest elevatorRequest);
-
         public void UpdateElevatorAfterMove(IElevator elevator);
 
     }

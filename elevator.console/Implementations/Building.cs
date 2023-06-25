@@ -85,16 +85,17 @@ namespace elevator.console.Implementations
             IElevator nearestElevator = this.Elevators[0];
 
             //This is to avoid negative floor distance numbers.
-            int passangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= this.Elevators[0].CurrentFloor ? elevatorRequest.SummonedFloor - this.Elevators[0].CurrentFloor : this.Elevators[0].CurrentFloor - elevatorRequest.SummonedFloor;
+            int passangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= this.Elevators[0].CurrentFloor ? 
+                elevatorRequest.SummonedFloor - this.Elevators[0].CurrentFloor : this.Elevators[0].CurrentFloor - elevatorRequest.SummonedFloor;
 
             foreach(IElevator elevator in this.Elevators)
             {
 
                 //This is to avoid negative floor distance numbers.
-                int currentPassangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= elevator.CurrentFloor ? elevatorRequest.SummonedFloor - elevator.CurrentFloor : elevator.CurrentFloor - elevatorRequest.SummonedFloor;
+                int currentPassangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= elevator.CurrentFloor ? 
+                    elevatorRequest.SummonedFloor - elevator.CurrentFloor : elevator.CurrentFloor - elevatorRequest.SummonedFloor;
 
-
-                if (currentPassangerElevatorFloorDistance < passangerElevatorFloorDistance)
+                if ((currentPassangerElevatorFloorDistance < passangerElevatorFloorDistance) && (elevator.Passagers.Count < elevator.MaxPassagerNum))
                 {
                     nearestElevator = elevator;
                     passangerElevatorFloorDistance = currentPassangerElevatorFloorDistance;
@@ -108,6 +109,10 @@ namespace elevator.console.Implementations
 
         public void UpdateElevatorAfterMove(IElevator elevator)
         {
+
+            /**
+             * Changes The state of the nearast chosen elevator after move.
+             */
 
             foreach (IElevator currentElevator in this.Elevators)
             {
