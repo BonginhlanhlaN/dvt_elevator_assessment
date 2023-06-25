@@ -17,7 +17,6 @@ namespace elevator.console.Implementations
         public int CurrentFloor { get; set; }
         public int ToFloor { get; set; }
         public int Direction { get; set; }
-
         public int MaxPassagerNum { get; set; } = 10;
 
 
@@ -67,9 +66,9 @@ namespace elevator.console.Implementations
 
             int currentIterationIndex = 0;
             int numberOfPassagersDroppedOff = 0;
-            foreach (IPassanger passsager in this.Passagers)
+            foreach (IPassanger passsager in this.Passagers.ToList())
             {
-                /**If the destination of the Passager that the elavtor is carrying lies in between the Floor the elavator is currently in 
+                /**If the destination of the elavtor is carrying lies in between the Floor the elavator is currently in 
                  * and the floor it's going too,
                  * dropp them off.
                  */
@@ -146,6 +145,10 @@ namespace elevator.console.Implementations
         public void OnLoad(IPassanger passanger)
         {
 
+
+            /**
+             * Takes care of onLoading a Passager
+             * **/
             Console.WriteLine("Elevator picked you up on floor " + passanger.FromFloor + ". Now heading to floor " + passanger.ToFloor);
             this.CurrentFloor = passanger.FromFloor;
             this.Passagers.Add(passanger);

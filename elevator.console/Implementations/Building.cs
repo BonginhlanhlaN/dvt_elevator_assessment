@@ -86,14 +86,16 @@ namespace elevator.console.Implementations
 
             //This is to avoid negative floor distance numbers.
             int passangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= this.Elevators[0].CurrentFloor ? 
-                elevatorRequest.SummonedFloor - this.Elevators[0].CurrentFloor : this.Elevators[0].CurrentFloor - elevatorRequest.SummonedFloor;
+                elevatorRequest.SummonedFloor - this.Elevators[0].CurrentFloor : 
+                this.Elevators[0].CurrentFloor - elevatorRequest.SummonedFloor;
 
             foreach(IElevator elevator in this.Elevators)
             {
 
                 //This is to avoid negative floor distance numbers.
                 int currentPassangerElevatorFloorDistance = elevatorRequest.SummonedFloor >= elevator.CurrentFloor ? 
-                    elevatorRequest.SummonedFloor - elevator.CurrentFloor : elevator.CurrentFloor - elevatorRequest.SummonedFloor;
+                    elevatorRequest.SummonedFloor - elevator.CurrentFloor : 
+                    elevator.CurrentFloor - elevatorRequest.SummonedFloor;
 
                 if ((currentPassangerElevatorFloorDistance < passangerElevatorFloorDistance) && (elevator.Passagers.Count < elevator.MaxPassagerNum))
                 {

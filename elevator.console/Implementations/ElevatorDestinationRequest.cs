@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace elevator.console.Implementations
 {
-    class ElevatorDestinationRequest : IElevatorDestinationRequest
+    public class ElevatorDestinationRequest : IElevatorDestinationRequest
     {
 
         public int DestinationFloor { get; set; }
